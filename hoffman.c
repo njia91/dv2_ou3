@@ -19,16 +19,21 @@ int main(int argc, char const *argv[]){
 
   checkInput(argv);
 
-  //FILE *infil;
-  //FILE *utfil;
+  hoffmanTree = frequencyAnalysis(argv[2]);
 
- // infil = fopen(argv[3], "r");
-  //utfil = fopen(argv[4], "w");
+	if (!strcmp(argv[1],"encode")){
 
-  hoffmanTree = frequencyAnalasys(argv[2]);
+		compress(hoffmanTree,argv[3],argv[4]);
+	}
+	else if (!strcmp(argv[1],"decode")){
 
+    compress(hoffmanTree,argv[3],argv[4]);
 
-	compress(hoffmanTree,argv[2],argv[3]);
+  }
+	else{
+		errorOutput();
+	}
+
 
 
   return 0;

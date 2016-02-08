@@ -3,6 +3,9 @@
 #include "prioqueue.h"
 
 
+
+
+
 int ascendingOrder(VALUE a,VALUE b){
 
   return (*(pqCell *)a).weight < (*(pqCell *)b).weight;
@@ -10,7 +13,7 @@ int ascendingOrder(VALUE a,VALUE b){
 }
 
 //"main funktion" kallar på de andra.
-binary_tree* frequencyAnalasys(char const frequencyText[]) {
+binary_tree* frequencyAnalysis(char const frequencyText[]) {
 
   int *frequencyArray;
 
@@ -30,18 +33,15 @@ void textFileTraverse(int *frequencyArray, char const frequencyText[]) {
 
 	unsigned char readChar=0;
 	char stopFile=0;
-	int i = 0;
 
 	FILE *freqfil;
 
 	freqfil = fopen(frequencyText, "r");
 
 	while ( stopFile != EOF ) {
-		i++;
 		stopFile = fgetc(freqfil);
 		readChar = (unsigned char)stopFile;
 		frequencyArray[(int)readChar]++;
-
 	}
 
 	fclose(freqfil);
@@ -110,7 +110,7 @@ binary_tree* buildTree(int frequencyArray[]){
 
   free(first);
   pqueue_free(q);
-//  binaryTree_free(tree);
+
 
 
 	free(frequencyArray);
